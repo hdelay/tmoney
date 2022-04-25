@@ -33,7 +33,6 @@ img {
     vertical-align: middle;
 }
 a {
-    font-weight: 200;
     text-decoration: none;
     color: #222;
 }
@@ -137,7 +136,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 :root {
     /* color */
     --main-color: #0078C1;
-    --sub01-color: #1E9FD5;
+    --sub01-color: #920783;
     --sub02-color: #2C2C6D;
     --sub03-color: #C2D8DC;
     --sub04-color: #00AFAA;
@@ -148,12 +147,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     --gray-font-color: #666;
  
     /* font size */
-    --font-xs: .6rem;
-    --font-s: .8rem;
+    --font-xs: .8rem;
+    --font-s: .9rem;
     --font-m: 1rem;
-    --font-l: 1.2rem;
-    --font-xl: 1.4rem;
-    --font-xxl: 1.6rem;
+    --font-l: 1.1rem;
+    --font-xl: 1.2rem;
+    --font-xxl: 1.3rem;
   }
 
 /* 히든 요소 */
@@ -172,6 +171,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @media screen and (max-width: 768px) {
     body {
-        font-size: 0.8rem;
+        font-size: var(--font-xs);
     }
 }

@@ -294,8 +294,8 @@
     transition: all 0.3s ease;
 }
 .box_rdo input[type="radio"]:checked + label::before {
-    background-color: var(--sub01-color);
-    border: 1px solid var(--sub01-color);
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
 .box_rdo input[type="radio"]:checked + label::after {
     background-color: var(--white-color);
@@ -341,8 +341,8 @@
   box-sizing: border-box;
 }
 .box_chk input[type="checkbox"]:checked + label::before {
-    border: 1px solid var(--sub01-color);
-    background-color: var(--sub01-color);
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
 }
 .box_chk input[type="checkbox"]:checked + label::after,
 .box_chk input[type="checkbox"]:not(:checked) + label::after,
@@ -379,6 +379,38 @@
 }
 
 /* datepicker */
+.box_datepicker {
+    display: flex;
+    max-width: 400px;
+}
+.box_datepicker.solo {
+    max-width: 100%;
+    width: 100%;
+}
+.box_datepicker.solo span {
+    width: 100%;
+}
+.box_datepicker span {
+    display: flex;
+    position: relative;
+    width: calc(50% - 5px);
+    align-items: center;
+}
+.box_datepicker span:nth-child(2) {
+    width: 10px;
+    margin: 0 5px;
+    text-align: center;
+}
+.box_datepicker span input {
+    width: 100%;
+    padding-right: 35px;
+}
+.box_datepicker span .ui-datepicker-trigger {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -8px;
+}
 .ui-datepicker {
     display: none;
 	width: 17em;
@@ -533,12 +565,16 @@
 	width: 100%;
 	overflow: visible;
     border-radius: 2px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     background-color: #aaa;
     font-size: 1em;
     font-family: 'NotoSansKR';
     font-weight: 300;
-    color: #fff;
+    color: var(--white-color);
+    transition: .2s;
+}
+.ui-datepicker .ui-datepicker-buttonpane button:hover {
+    background-color: var(--main-color);
 }
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
 	float: left;
@@ -620,7 +656,7 @@
 }
 
 /* 인풋박스 */
-.inputbox input {
+.box_input input {
     width: 100%;
 }
 input[type="text"],
@@ -634,12 +670,12 @@ input[type="password"] {
 }
 
 /* 셀렉트박스 */
-.selectbox {
+.box_select {
     display: flex;
     align-items: center;
     min-width: 150px;
 }
-.selectbox select {
+.box_select select {
     width: 100%;
 }
 select {
@@ -652,7 +688,7 @@ select {
     background-color: var(--white-color);
     color: var(--gray-font-color);
 }
-.selectbox.solo {
+.box_select.solo {
     width: 100%;
 }
 
@@ -664,7 +700,7 @@ select {
 textarea {
     border: 1px solid #ddd;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 2px;
     width: 100%;
     min-height: 300px;
     box-sizing: border-box;
@@ -694,7 +730,6 @@ textarea {
     width: calc(100% - 109px);
 }
 
-
 input[type="text"]:disabled, 
 input[type="password"]:disabled,
 input[type="text"]:read-only,
@@ -705,28 +740,23 @@ textarea:read-only {
 }
 
 /* 테이블 */
-
 .tbl_row {
-    border-top: 2px solid #000;
+    border-top: 1px solid var(--black-color);
 }
 .tbl_row table {
     table-layout: fixed;
     width: 100%;
 }
 .tbl_row table thead tr th {
-    background-color: #eee;
+    background-color: var(--white-color);
     text-align: center;
     line-height: 46px;
     padding: 0 10px;
     box-sizing: border-box;
     vertical-align: middle;
     font-weight: 400;
-    border-right: 1px dashed #ccc;
-    border-bottom: 1px dashed #ccc;
-    
-}
-.tbl_row table thead tr:last-child th {
-    border-bottom: none;
+    font-size: var(--font-s);
+    border-bottom: 1px solid var(--black-color);
 }
 .tbl_row table thead tr th:last-child {
     border-right: none;
@@ -735,19 +765,21 @@ textarea:read-only {
     background-color: rgba(255,255,255,.8);
 }
 .tbl_row table tbody tr td {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ebebeb;
     box-sizing: border-box;
     padding: 10px;
     vertical-align: middle;
     text-align: center;
-    color: #787878;
-    font-size: 14px;
+    color: var(--black-color);
+    font-size: var(--font-s);
+    font-weight: 300;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.tbl_row table tbody tr:hover td {
-    background-color: #f5f5f5;
+.tbl_row table tbody tr:hover td,
+.tbl_row table tbody tr:focus td {
+    background-color: rgba(0, 120, 193, .1);
 }
 .tbl_row table tbody tr td .list {
     display: flex;
@@ -804,20 +836,23 @@ span.new {
 .tbl_row table tbody tr.noti td a {
     font-weight: 500;
 }
+.tbl_row table tbody tr.noti td:nth-child(1) .ico_noti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../images/ico/ico_notice.svg) no-repeat center;
+    text-indent: -9999rem;
+}
 .tbl_row table tbody tr td a:hover {
     text-decoration: underline;
 }
-.tbl_row.tbl_min {
-    width: 100%;
-    overflow-x: auto;
-}
-.tbl_row.tbl_min table {
-    min-width: 800px;
-    
+.tbl_row table tbody tr:last-child td {
+    border-bottom: 1px solid var(--black-color);
 }
 
 .tbl_column {
-    border-top: 2px solid #000;
+    border-top: 1px solid var(--black-color);
+    border-bottom: 1px solid var(--black-color);
 }
 .tbl_column table {
     width: 100%;
@@ -827,13 +862,14 @@ span.new {
     background-color: rgba(255,255,255,.8);
 }
 .tbl_column table tbody tr th {
-    background-color: #eee;
-    border-bottom: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
     text-align: left;
     padding: 11px 10px;
     box-sizing: border-box;
     vertical-align: middle;
-    font-weight: 400;
+    font-size: var(--font-s);
+    font-weight: 300;
 }
 .tbl_column table tbody tr th label span {
     display: block;
@@ -844,67 +880,21 @@ span.new {
     display: inline-block;
 }
 .tbl_column table tbody tr td {
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
     padding: 5px 10px;
     vertical-align: middle;
-    font-size: 14px;
-    color: #787878;
+    font-size: var(--font-s);
+    color: var(--black-color);
 }
-.tbl_column table tbody tr td:last-child {
-    border-right: none;
-}
-.tbl_column table tbody tr:last-child th {
-    border-bottom: 1px solid #ccc;
+.tbl_column table tbody tr:last-child th,
+.tbl_column table tbody tr:last-child td {
+    border-bottom: none;
 }
 .req::after {
     content: "*";
-    color: #EC6818;
-}
-
-.tbl_group_in_table .tbl_group_in_table_in {
-    overflow-y: auto;
-    max-height: 150px;
-}
-.tbl_group_in_table .title_group {
-    padding: 0px 0 5px;
-}
-.tbl_group_in_table .right .input_group.file_btn .filebox.solo {
-    width: 100%;
-}
-.tbl_group_in_table .right .input_group.file_btn .filebox.solo label {
-    width: 100%;
-    margin-left: 0;
-}
-.tbl_group_in_table .tbl_row table thead tr th,
-.tbl_group_in_table .tbl_row table tbody tr td {
-    padding: 5px;
-}
-.tbl_group_in_table .btn_center {
-    margin: 0;
-}
-
-/* 텍스트박스 */
-.txtbox > ul {
-    padding: 30px;
-    margin: 40px 0 30px;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
-}
-.txtbox > ul > li {
-    padding-left: 15px;
-    position: relative;
-    color: #787878;
-}
-.txtbox > ul > li::before {
-    content: "·";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.txtbox > ul > li > span {
-    display: block;
+    color: #D26444;
 }
 
 /* 페이징 */
@@ -919,61 +909,46 @@ span.new {
 .paging ul li a {
     display: block;
     position: relative;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     line-height: 28px;
-    color: #787878;
-    font-size: 14px;
+    color: var(--black-color);
+    border: 1px solid var(--border-color);
+    font-size: var(--font-s);
     transition: .2s;
 }
 .paging ul li a:hover {
-    color: #000;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
 .paging ul li + li {
     margin-left: 10px;
 }
 .paging ul li.on a {
-    color: #000;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
-.paging ul li a::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    z-index: -1;
-    transition: .2s;
-}
-.paging ul li a:hover::before {
-    background-color: #ddd;
-}
-.paging ul li.on a::before {
-    background-color: #ddd;
-}
-.prev_more,
+.prev_all,
 .prev,
 .next,
-.next_more {
+.next_all {
     text-indent: -9999px;
 }
-.prev_more {background: url(../images/ico/ico_prev_more.svg) no-repeat center;}
+.prev_all {background: url(../images/ico/ico_prev_all.svg) no-repeat center;}
 .prev {background: url(../images/ico/ico_prev.svg) no-repeat center;}
 .next {background: url(../images/ico/ico_next.svg) no-repeat center;}
-.next_more {background: url(../images/ico/ico_next_more.svg) no-repeat center;}
+.next_all {background: url(../images/ico/ico_next_all.svg) no-repeat center;}
 
-.prev_more:hover {background: url(../images/ico/ico_prev_more_on.svg) no-repeat center;}
+.prev_all:hover {background: url(../images/ico/ico_prev_all_on.svg) no-repeat center;}
 .prev:hover {background: url(../images/ico/ico_prev_on.svg) no-repeat center;}
 .next:hover {background: url(../images/ico/ico_next_on.svg) no-repeat center;}
-.next_more:hover {background: url(../images/ico/ico_next_more_on.svg) no-repeat center;}
+.next_all:hover {background: url(../images/ico/ico_next_all_on.svg) no-repeat center;}
 
-.paging ul li.on .prev_more {background: url(../images/ico/ico_prev_more_on.svg) no-repeat center;}
+.paging ul li.on .prev_all {background: url(../images/ico/ico_prev_all_on.svg) no-repeat center;}
 .paging ul li.on .prev {background: url(../images/ico/ico_prev_on.svg) no-repeat center;}
 .paging ul li.on .next {background: url(../images/ico/ico_next_on.svg) no-repeat center;}
-.paging ul li.on .next_more {background: url(../images/ico/ico_next_more_on.svg) no-repeat center;}
+.paging ul li.on .next_all {background: url(../images/ico/ico_next_all_on.svg) no-repeat center;}
 
 /* input 그룹 */
 .rdo_group {
@@ -992,7 +967,7 @@ span.new {
     display: flex;
     align-items: center;
 }
-.rdo_group span .datepicker_group {
+.rdo_group span .box_datepicker {
     margin-left: 10px;
     max-width: 300px;
 }
@@ -1010,38 +985,7 @@ span.new {
 .chk_group span:last-child {
     margin-right: 0;
 }
-.datepicker_group {
-    display: flex;
-    max-width: 400px;
-}
-.datepicker_group.solo {
-    max-width: 100%;
-    width: 100%;
-}
-.datepicker_group.solo span {
-    width: 100%;
-}
-.datepicker_group span {
-    display: flex;
-    position: relative;
-    width: calc(50% - 5px);
-    align-items: center;
-}
-.datepicker_group span:nth-child(2) {
-    width: 10px;
-    margin: 0 5px;
-    text-align: center;
-}
-.datepicker_group span input {
-    width: 100%;
-    padding-right: 35px;
-}
-.datepicker_group span .ui-datepicker-trigger {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -8px;
-}
+
 .input_group {
     display: flex;
     flex-wrap: wrap;
