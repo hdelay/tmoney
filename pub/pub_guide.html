@@ -171,6 +171,9 @@
             .wrap > dl > dt {
                 font-size: 20px;
             }
+            .wrap > dl > dd {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -445,23 +448,98 @@
                             <table>
                                 <caption>회원가입 폼</caption>
                                 <colgroup>
-                                    <col width="20%"/>
-                                    <col width="30%"/>
-                                    <col width="20%"/>
-                                    <col width="30%"/>
+                                    <col width="100px"/>
+                                    <col width="25%"/>
+                                    <col width="25%"/>
+                                    <col width="25%"/>
                                 </colgroup>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">제목</th>
-                                        <td colspan="3">내용</td>
+                                        <th scope="row"><label for="">이름</label></th>
+                                        <td colspan="3">홍길동</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">제목</th>
-                                        <td colspan="3">내용</td>
+                                        <th scope="row"><label for="">생년월일</label></th>
+                                        <td colspan="3">1975-01-03</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">제목</th>
-                                        <td colspan="3">내용</td>
+                                        <th scope="row"><label for="rdo_01">보호자 동의</label></th>
+                                        <td colspan="3">
+                                            <div class="box_rdo">
+                                                <span>
+                                                    <input type="radio" id="rdo_01" name="rdo_group_01">
+                                                    <label for="rdo_01">I-PIN</label>
+                                                </span>
+                                                <span>
+                                                    <input type="radio" id="rdo_02" name="rdo_group_01">
+                                                    <label for="rdo_02">휴대폰</label>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="input_01">아이디<span class="req"></span></label></th>
+                                        <td colspan="3">
+                                            <div class="box_input_group">
+                                                <div class="box_input">
+                                                    <input type="text" id="input_01">
+                                                </div>
+                                                <div class="box_btn">
+                                                    <button>중복확인</button>
+                                                </div>
+                                            </div>
+                                            <div class="box_input_group_txt">
+                                                <span>※ 영문소문자, 숫자로 6~15자로 입력하세요. <br/>(단, 시작은 영문자만 가능)</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="input_02">비밀번호<span class="req"></span></label></th>
+                                        <td colspan="3">
+                                            <div class="box_input_group">
+                                                <div class="box_input">
+                                                    <input type="password" id="input_02">
+                                                </div>
+                                            </div>
+                                            <div class="box_input_group_txt">
+                                                <span>※ 영문, 숫자, 특수문자 중 2가지 이상 혼합하여 10~20자로 입력하세요. (단, 영문자는 반드시 포함)</span>
+                                                <span>※ 아이디가 포함된 비밀번호는 사용하실 수 없습니다.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="input_03">비밀번호 확인<span class="req"></span></label></th>
+                                        <td colspan="3">
+                                            <div class="box_input_group">
+                                                <div class="box_input">
+                                                    <input type="password" id="input_03">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">전화번호</label></th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">휴대전화<span class="req"></span></label></th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">이메일</label></th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">지급계좌<span class="req"></span></label></th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">카드번호<span class="req"></span></label></th>
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="">주소<span class="req"></span></label></th>
+                                        <td colspan="3"></td>
                                     </tr>
                                 </tbody>
                             </table>

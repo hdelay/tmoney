@@ -754,7 +754,7 @@ textarea:read-only {
     background-color: rgba(255,255,255,.8);
 }
 .tbl_row table tbody tr td {
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 1px solid var(--border-light-color);
     box-sizing: border-box;
     padding: 10px;
     vertical-align: middle;
@@ -852,13 +852,15 @@ span.new {
 }
 .tbl_column table tbody tr th {
     background-color: #f5f5f5;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-light-color);
+    border-left: 1px solid var(--border-light-color);
     text-align: left;
     padding: 11px 10px;
     box-sizing: border-box;
     vertical-align: middle;
     font-size: var(--font-s);
     font-weight: 300;
+    color: #666;
 }
 .tbl_column table tbody tr th label span {
     display: block;
@@ -869,9 +871,8 @@ span.new {
     display: inline-block;
 }
 .tbl_column table tbody tr td {
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    border-left: 1px solid var(--border-color);
+    border: 1px solid var(--border-light-color);
+    border-top: none;
     padding: 5px 10px;
     vertical-align: middle;
     font-size: var(--font-s);
@@ -889,6 +890,9 @@ span.new {
 /* 페이징 */
 .paging {
     padding: 15px 0 15px;
+}
+.paging.mob {
+    display: none;
 }
 .paging ul {
     display: flex;
@@ -1191,7 +1195,7 @@ span.new {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        border-bottom: 1px solid #ebebeb;
+        border-bottom: 1px solid var(--border-light-color);
         padding: 10px;
         box-sizing: border-box;
     }
@@ -1242,7 +1246,20 @@ span.new {
         background-color: rgba(0, 120, 193, .1);
     }
 
+    .tbl_column table tbody tr th {
+        padding: 8px 7px;
+    }
+
     /* 페이징 */
+    .paging {
+        display: none;
+    }
+    .paging.mob {
+        display: block;
+    }
+    .paging ul li + li {
+        margin-left: 5px;
+    }
     .paging ul li a {
         font-size: var(--font-xs);
     }
